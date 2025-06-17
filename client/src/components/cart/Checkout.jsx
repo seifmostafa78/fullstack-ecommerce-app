@@ -64,7 +64,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="flex-1 border border-gray-300 rounded-xl p-6 h-[65vh] flex flex-col gap-6">
+    <div className="flex-1 border border-gray-300 rounded-xl p-6 h-[52vh] flex flex-col gap-6">
       <h1 className="text-2xl font-light">ORDER SUMMARY</h1>
       <div className="flex justify-between">
         <span>Subtotal</span>

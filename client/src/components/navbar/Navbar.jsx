@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="h-16 bg-background border-b border-border">
       <div className="px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
-        <div className="sm:hidden">
+        <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -45,7 +45,7 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
-        <div className="hidden sm:flex items-center gap-5 flex-1">
+        <div className="hidden md:flex items-center gap-5 flex-1">
           <span className="text-sm font-medium">EN</span>
           <div className="flex items-center border border-border rounded-md px-2 py-[1px] max-w-xs w-full">
             <Input
@@ -63,11 +63,16 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center justify-end gap-4 flex-1">
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <AuthButtons />
           </div>
+          <Link to="/orders" className="link">
+            <Button variant="outline" size="sm">
+              your orders
+            </Button>
+          </Link>
           <Link to="/cart" className="relative text-decoration-none">
-          <ShoppingCartOutlinedIcon className="h-6 w-6 text-foreground hover:text-primary transition-colors cursor-pointer" />
+            <ShoppingCartOutlinedIcon className="h-6 w-6 text-foreground hover:text-primary transition-colors cursor-pointer" />
             {quantity > 0 && (
               <Badge
                 variant="destructive"

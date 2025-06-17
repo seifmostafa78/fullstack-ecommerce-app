@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Order from "@/components/Order";
+import OrderSuccess from "@/components/order/OrderSuccess";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import HomeIcon from "@mui/icons-material/Home";
@@ -53,7 +53,10 @@ const Success = () => {
         <div className="text-center !mb-8 animate-fade-in">
           <div className="flex justify-center !mb-4">
             <div className="relative">
-              <CheckCircleIcon fontSize="large" className="w-20 h-20 text-green-500 animate-scale-in" />
+              <CheckCircleIcon
+                fontSize="large"
+                className="w-20 h-20 text-green-500 animate-scale-in"
+              />
               <div className="absolute inset-0 rounded-full bg-green-500 opacity-20 animate-pulse"></div>
             </div>
           </div>
@@ -97,7 +100,7 @@ const Success = () => {
             </div>
           </CardContent>
         </Card>
-        <Order charge={charge} products={products} />
+        <OrderSuccess charge={charge} products={products} />
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
           <Link to="/" className="w-full sm:w-auto">
             <Button className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
@@ -105,13 +108,15 @@ const Success = () => {
               Continue Shopping
             </Button>
           </Link>
-          <Button
-            variant="outline"
-            className="w-full sm:w-auto border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-          >
-            <ReceiptLongIcon className="w-5 h-5 !mr-2" />
-            View Orders
-          </Button>
+          <Link to="/orders" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              <ReceiptLongIcon className="w-5 h-5 !mr-2" />
+              View Orders
+            </Button>
+          </Link>
         </div>
         <div className="!mt-8 text-center text-gray-600 animate-fade-in">
           <p className="!mb-1">

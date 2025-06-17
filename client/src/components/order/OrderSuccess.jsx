@@ -6,22 +6,15 @@ import Inventory2Icon from "@mui/icons-material/Inventory2";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
+import { formatAddress } from "@/lib/order";
 
-const Order = ({ charge, products }) => {
+const OrderSuccess = ({ charge, products }) => {
   const [showDetails, setShowDetails] = useState(false);
-
-  const formatAddress = (address) => {
-    if (!address) return "N/A";
-    return `${address.line1}${address.line2 ? `, ${address.line2}` : ""}, ${
-      address.city
-    }, ${address.postal_code}, ${address.country}`;
-  };
 
   const totalItems = products.reduce(
     (sum, product) => sum + product.quantity,
     0
   );
-
   return (
     <Card className="!mb-6 shadow-lg border-0 bg-white/80 backdrop-blur-sm animate-fade-in">
       <CardHeader>
@@ -104,4 +97,4 @@ const Order = ({ charge, products }) => {
   );
 };
 
-export default Order;
+export default OrderSuccess;

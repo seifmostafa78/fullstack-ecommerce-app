@@ -9,7 +9,10 @@ const orderApiSlice = apiSlice.injectEndpoints({
         body: { ...order },
       }),
     }),
+    orders: builder.query({
+      query: (userId) => `/orders/find/${userId}`,
+    }),
   }),
 });
 
-export const { useCreateOrderMutation } = orderApiSlice;
+export const { useCreateOrderMutation, useOrdersQuery } = orderApiSlice;

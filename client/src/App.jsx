@@ -16,6 +16,7 @@ import RootLayout from "./components/RootLayout";
 import RequireAuth from "./components/auth/RequireAuth";
 import RequirePayment from "./components/RequirePayment";
 import RequireGuest from "./components/auth/RequireGuest";
+import Orders from "./pages/Orders";
 
 function App() {
   const router = createBrowserRouter(
@@ -56,6 +57,14 @@ function App() {
             <RequirePayment>
               <Success />
             </RequirePayment>
+          }
+        />
+        <Route
+          path="orders"
+          element={
+            <RequireAuth>
+              <Orders />
+            </RequireAuth>
           }
         />
       </Route>

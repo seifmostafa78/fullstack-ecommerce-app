@@ -20,7 +20,12 @@ const ProductPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
-  const { data: product, isLoading, error } = useGetProductByIdQuery(productId);
+  const {
+    data: product,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductByIdQuery(productId);
   const [selection, setSelection] = useState({
     quantity: 1,
     color: "",
@@ -76,10 +81,7 @@ const ProductPage = () => {
   };
 
   if (isLoading) return <Loader message="Loading Product..." />;
-  if (error)
-    return (
-      <p className="p-5 text-center text-red-500">Failed to load product.</p>
-    );
+  if (isError) return <p className="p-5 text-center text-red-500">{error}</p>;
   return (
     <main>
       <section className="flex flex-col sm:flex-row items-center p-4 sm:p-6 lg:px-12 pb-10 gap-8">

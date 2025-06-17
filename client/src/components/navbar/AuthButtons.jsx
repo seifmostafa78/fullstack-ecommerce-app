@@ -17,7 +17,7 @@ const AuthButtons = ({ onAction }) => {
     logoutUser(logout, dispatch, navigate, onAction);
   };
   return (
-    <div className="flex items-start sm:items-center flex-col sm:flex-row gap-4">
+    <div className="flex items-start md:items-center flex-col md:flex-row gap-4">
       {accessToken ? (
         <>
           <div className="flex items-center text-sm font-medium text-muted-foreground">
