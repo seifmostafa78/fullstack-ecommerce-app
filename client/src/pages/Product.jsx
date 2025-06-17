@@ -81,7 +81,12 @@ const ProductPage = () => {
   };
 
   if (isLoading) return <Loader message="Loading Product..." />;
-  if (isError) return <p className="p-5 text-center text-red-500">{error}</p>;
+  if (isError)
+    return (
+      <p className="p-5 text-center text-red-500">
+        {error?.data?.message || "Something went wrong while fetching product."}
+      </p>
+    );
   return (
     <main>
       <section className="flex flex-col sm:flex-row items-center p-4 sm:p-6 lg:px-12 pb-10 gap-8">

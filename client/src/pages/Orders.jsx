@@ -13,7 +13,10 @@ const Orders = () => {
   if (isLoading) return <Loader message="Loading Orders..." />;
   if (isError)
     return (
-      <p className="p-5 text-center text-red-500">{error}</p>
+      <p className="p-5 text-center text-red-500">
+        {error?.data?.message ||
+          "Something went wrong while fetching your orders."}
+      </p>
     );
   return (
     <div className="container !mx-auto px-4 py-8">
