@@ -38,6 +38,7 @@ export const loginUser = async (
   userInfo,
   dispatch,
   getCart,
+  allProducts,
   resetUser,
   navigate
 ) => {
@@ -51,7 +52,18 @@ export const loginUser = async (
       Cookies.set("accessToken", accessToken);
       dispatch(setCredentials({ user: data.user }));
       const res = await getCart(data.user._id).unwrap();
-      dispatch(setCart({ _id: res._id, products: res.products }));
+      const detailedProducts = res.products.map((cartItem) => {
+        const fullProduct = allProducts.find(
+          (p) => p._id === cartItem.productId || p._id === cartItem._id
+        );
+        return {
+          ...cartItem,
+          img: fullProduct.img,
+          title: fullProduct.title,
+          price: fullProduct.price,
+        };
+      });
+      dispatch(setCart({ _id: res._id, products: detailedProducts }));
       resetUser();
       toast.success(data.message);
       navigate("/");
@@ -69,7 +81,6 @@ export const logoutUser = async (logout, dispatch, navigate, onAction) => {
     dispatch(removeUser());
     toast.success(message);
     navigate("/auth/login");
-    
   } catch (err) {
     console.error("Logout failed:", err);
     alert("An error occurred while logging out. Please try again.");

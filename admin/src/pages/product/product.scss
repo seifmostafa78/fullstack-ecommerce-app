@@ -1,0 +1,114 @@
+$primary-color: #7451f8;
+$primary-bg: #7551f818;
+$gray-text: gray;
+
+.product-page {
+  width: 100%;
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
+
+  &__top {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
+  }
+
+  &__info-card {
+    flex: 1;
+    position: relative;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+  }
+
+  &__edit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 0 0 0 5px;
+    color: $primary-color;
+    background-color: $primary-bg;
+    cursor: pointer;
+  }
+
+  &__section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: $gray-text;
+  }
+
+  &__info {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @media (max-width: 640px) {
+      align-self: center;
+    }
+  }
+
+  &__details {
+    width: 70%;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: gray;
+  }
+
+  &__attributes {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+    }
+  }
+
+  &__attribute-row {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__attribute-key {
+    font-weight: bold;
+    color: $gray-text;
+    margin-right: 5px;
+  }
+
+  &__attribute-value {
+    font-weight: 300;
+  }
+
+  &__chart-section {
+    flex: 1;
+  }
+
+  &__form-section {
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    margin: 10px 20px;
+  }
+}

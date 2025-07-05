@@ -1,0 +1,16 @@
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  .container {
+    flex: 6;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

@@ -4,9 +4,6 @@ const isSameProduct = (p1, p2) =>
 const mapToBackendFormat = (products) =>
   products.map((p) => ({
     productId: p._id,
-    title: p.title,
-    img: p.img,
-    price: p.price,
     color: p.color,
     size: p.size,
     quantity: p.quantity,
@@ -24,10 +21,9 @@ export const formattedProducts = (cart, product, selection, currentUser) => {
   const mergedProduct = {
     ...product,
     ...selection,
-    quantity:
-      existingProduct?.quantity
-        ? selection.quantity + existingProduct.quantity
-        : selection.quantity,
+    quantity: existingProduct?.quantity
+      ? selection.quantity + existingProduct.quantity
+      : selection.quantity,
   };
 
   return {

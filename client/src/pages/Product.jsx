@@ -63,7 +63,15 @@ const ProductPage = () => {
 
   const handleClick = async () => {
     if (accessToken) {
-      dispatch(addToCart({ ...product, ...selection }));
+      dispatch(
+        addToCart({
+          _id: product._id,
+          price: product.price,
+          img: product.img,
+          title: product.title,
+          ...selection,
+        })
+      );
       const cartPayload = formattedProducts(
         cart,
         product,
@@ -123,6 +131,7 @@ const ProductPage = () => {
             <div className="flex items-center gap-3">
               <span className="text-xl font-light">Size</span>
               <select
+                value={selection.size}
                 className="border px-2 py-1 rounded-md"
                 onChange={(e) => updateSelection("size", e.target.value)}
               >

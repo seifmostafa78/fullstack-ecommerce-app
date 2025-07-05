@@ -26,9 +26,7 @@ const Cart = () => {
       <div className="flex flex-col md:flex-row justify-between gap-6 pt-6">
         <div className="flex-1">
           {products && products.length > 0 ? (
-            products.map((product, index) => (
-              <CartItem key={index} product={product} />
-            ))
+            products.map((item, index) => <CartItem key={index} item={item} />)
           ) : (
             <p className="text-center text-lg">
               your shopping cart is currently empty.

@@ -19,7 +19,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).json({message:"user updated successfully", updatedUser});
+    res.status(200).json({ message: "user updated successfully", updatedUser });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -28,8 +28,8 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
 // DELETE
 router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
-    await User.findByIdAndDelete(req.params.id)
-    res.status(200).json({message: "user deleted successfully"});
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "user deleted successfully" });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -58,7 +58,7 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-//GET USER STATS
+//GET USERS STATS
 router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
@@ -78,7 +78,7 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
         },
       },
     ]);
-    res.status(200).json(data)
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }

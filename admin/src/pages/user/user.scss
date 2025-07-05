@@ -1,0 +1,107 @@
+$primary-color: #7451f8;
+$primary-bg: #7551f818;
+$gray-text: gray;
+
+.user-page {
+  width: 100%;
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
+
+  &__top {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
+  }
+
+  &__info-card {
+    flex: 1;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    position: relative;
+  }
+
+  &__edit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 0 0 0 5px;
+    color: #7451f8;
+    background-color: #7551f818;
+    cursor: pointer;
+  }
+
+  &__section-title {
+    color: gray;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 450px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__details {
+    width: 100%;
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    color: #555;
+
+    @media (max-width: 450px) {
+      text-align: center;
+    }
+  }
+
+  &__attribute-row {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  &__attribute-key {
+    font-weight: bold;
+    color: gray;
+    margin-right: 5px;
+  }
+
+  &__attribute-value {
+    font-weight: 300;
+  }
+
+  &__chart-section {
+    flex: 2;
+  }
+
+  &__form-section {
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    margin: 10px 20px;
+
+    .user-page__section-title {
+      color: gray;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+}

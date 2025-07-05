@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  &__widgets {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__analytics {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__transactions {
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  &__section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+}

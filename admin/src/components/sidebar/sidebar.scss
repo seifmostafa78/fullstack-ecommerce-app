@@ -1,0 +1,130 @@
+.sidebar {
+  width: 200px;
+  min-height: 100vh;
+  background-color: white;
+  border-right: 0.5px solid rgb(230, 227, 227);
+  transition: width 0.2s ease, padding 0.2s ease;
+  z-index: 1000;
+  overflow: hidden;
+
+  &--closed {
+    width: 0px;
+
+    .sidebar__logo,
+    .sidebar__label,
+    .sidebar__section-title {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &--open {
+    width: 200px;
+
+    .sidebar__logo,
+    .sidebar__label,
+    .sidebar__section-title {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 850px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+
+    @media (max-width: 850px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    color: #6439ff;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s all;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  &__close-btn {
+    display: none;
+    color: #555;
+    background: none;
+    border: none;
+
+    @media (max-width: 850px) {
+      display: flex;
+    }
+  }
+
+  &__divider {
+    height: 0;
+    border: 0.5px solid rgb(230, 227, 227);
+  }
+
+  &__nav {
+    padding-left: 10px;
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__section {
+    margin-top: 10px;
+  }
+
+  &__section-title {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #999;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  &__section-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    padding: 8px 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #ece8ff;
+    }
+  }
+
+  &__icon {
+    color: #7451f8;
+    font-size: 18px;
+  }
+
+  &__label {
+    margin-left: 10px;
+    color: #888;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.5s all;
+    white-space: nowrap;
+  }
+}

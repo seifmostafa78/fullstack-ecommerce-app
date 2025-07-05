@@ -15,6 +15,7 @@ import {
   useLazyGetCartQuery,
 } from "@/redux/features/cart/cartApiSlice";
 import { loginUser, registerUser } from "@/lib/auth";
+import { useGetProductsQuery } from "@/redux/features/product/productApiSlice";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Form = () => {
   const formMode = location.pathname.split("/")[2];
   const [createCart] = useCreateCartMutation();
   const [getCart] = useLazyGetCartQuery();
+  const { data: products } = useGetProductsQuery();
   const [userInfo, setUserInfo] = useState({
     firstName: "",
     lastName: "",
@@ -72,6 +74,7 @@ const Form = () => {
             userInfo,
             dispatch,
             getCart,
+            products,
             resetUser,
             navigate
           );
