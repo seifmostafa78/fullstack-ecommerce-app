@@ -41,12 +41,15 @@ const icons = {
 };
 
 const widgetConfig = (type, stats) => {
+  const calculateDiff = (stats) =>
+    (stats[1]?.total * 100) / stats[0].total - 100;
+
   switch (type) {
     case "users":
       return {
         title: "USERS",
-        amount: stats && stats[0].total,
-        diff: stats && (5 * 100) / stats[0].total - 100,
+        amount: (stats && stats[1]?.total) || 0,
+        diff: (stats && calculateDiff(stats)) || 0,
         isMoney: false,
         text: "See all users",
         link: "/users",
@@ -55,8 +58,8 @@ const widgetConfig = (type, stats) => {
     case "orders":
       return {
         title: "ORDERS",
-        amount: stats && stats[1].total,
-        diff: stats && (stats[1].total * 100) / stats[0].total - 100,
+        amount: (stats && stats[1].total) || 0,
+        diff: (stats && calculateDiff(stats)) || 0,
         isMoney: false,
         text: "View all orders",
         link: "/users",
@@ -65,8 +68,8 @@ const widgetConfig = (type, stats) => {
     case "products":
       return {
         title: "PRODUCTS",
-        amount: stats && stats[1].total,
-        diff: stats && (stats[1].total * 100) / stats[0].total - 100,
+        amount: (stats && stats[1].total) || 0,
+        diff: (stats && (stats[1].total * 100) / stats[0].total - 100) || 0,
         isMoney: false,
         text: "See details",
         link: "/products",
@@ -75,8 +78,8 @@ const widgetConfig = (type, stats) => {
     case "earnings":
       return {
         title: "EARNINGS",
-        amount: stats && stats[1].total,
-        diff: stats && (stats[1].total * 100) / stats[0].total - 100,
+        amount: (stats && stats[1].total) || 0,
+        diff: (stats && (stats[1].total * 100) / stats[0].total - 100) || 0,
         isMoney: true,
         text: "View net earnings",
         link: "/",
